@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="DESTINY'S CUT — Premium barbing and grooming salon in Itori, Ewekoro, Ogun State.">
+
+    <title>DESTINY'S CUT | Premium Barbing Salon</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<header class="navbar">
+
+    <div class="logo">
+        <div class="logo-box">DC</div>
+
+        <div>
+            <h1>DESTINY'S CUT</h1>
+            <span>PREMIUM BARBING SALON</span>
+        </div>
+    </div>
+
+    <button class="menu-btn" id="menuBtn">☰</button>
+
+    <nav id="navMenu">
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#booking">Book Now</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+</header>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero" id="home">
+
+    <div class="hero-image">
+        <img
+            src="{{ url_for('static', filename='images/hero.jpg') }}"
+            alt="DESTINY'S CUT premium barbershop"
+        >
+    </div>
+
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+
+        <p class="gold-text">
+            WELCOME TO DESTINY'S CUT
+        </p>
+
+        <h2>
+            YOUR STYLE.
+            <br>
+            YOUR <span>DESTINY.</span>
+        </h2>
+
+        <p class="hero-description">
+            Premium haircuts, clean fades and professional grooming
+            designed to give you a sharp and confident look.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#booking" class="gold-button">
+                BOOK AN APPOINTMENT
+            </a>
+
+            <a href="#services" class="outline-button">
+                VIEW SERVICES
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= INTRO ================= -->
+
+<section class="intro">
+
+    <p class="gold-text">THE DESTINY'S CUT EXPERIENCE</p>
+
+    <h2>
+        LOOK SHARP.
+        <span>FEEL CONFIDENT.</span>
+    </h2>
+
+    <p>
+        Every haircut is handled with precision, creativity and
+        attention to detail. Your style is our signature.
+    </p>
+
+</section>
+
+
+<!-- ================= SERVICES ================= -->
+
+<section class="section" id="services">
+
+    <div class="section-heading">
+
+        <p class="gold-text">WHAT WE OFFER</p>
+
+        <h2 class="section-title">
+            PREMIUM <span>SERVICES</span>
+        </h2>
+
+        <p>
+            Professional grooming tailored to your style.
+        </p>
+
+    </div>
+
+
+    <div class="services-grid">
+
+        <!-- SERVICE 1 -->
+
+        <article class="service-card">
+
+            <div class="service-image">
+                <img
+                    src="{{ url_for('static', filename='images/haircut1.jpg') }}"
+                    alt="Professional haircut at DESTINY'S CUT"
+                >
+            </div>
+
+            <div class="service-info">
+
+                <span class="service-number">01</span>
+
+                <h3>Classic Haircut</h3>
+
+                <p>
+                    Clean, sharp and professionally finished
+                    for an everyday premium look.
+                </p>
+
+                <strong>₦3,000</strong>
+
+            </div>
+
+        </article>
+
+
+        <!-- SERVICE 2 -->
+
+        <article class="service-card featured">
+
+            <div class="service-image">
+                <img
+                    src="{{ url_for('static', filename='images/haircut2.jpg') }}"
+                    alt="Fresh fade haircut"
+                >
+            </div>
+
+            <div class="service-info">
+
+                <span class="service-number">02</span>
+
+                <h3>Signature Fade</h3>
+
+                <p>
+                    A detailed fade created with precision
+                    and customized to your style.
+                </p>
+
+                <strong>₦4,000</strong>
+
+            </div>
+
+        </article>
+
+
+        <!-- SERVICE 3 -->
+
+        <article class="service-card">
+
+            <div class="service-image">
+                <img
+                    src="{{ url_for('static', filename='images/haircut3.jpg') }}"
+                    alt="Professional beard grooming"
+                >
+            </div>
+
+            <div class="service-info">
+
+                <span class="service-number">03</span>
+
+                <h3>Haircut + Beard</h3>
+
+                <p>
+                    Complete grooming with a fresh haircut
+                    and professionally shaped beard.
+                </p>
+
+                <strong>₦5,000</strong>
+
+            </div>
+
+        </article>
+
+
+        <!-- SERVICE 4 -->
+
+        <article class="service-card">
+
+            <div class="service-image">
+                <img
+                    src="{{ url_for('static', filename='images/haircut4.jpg') }}"
+                    alt="Modern men's hairstyle"
+                >
+            </div>
+
+            <div class="service-info">
+
+                <span class="service-number">04</span>
+
+                <h3>Modern Styling</h3>
+
+                <p>
+                    Modern cuts and styling designed to
+                    match your personality.
+                </p>
+
+                <strong>₦4,000</strong>
+
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- ================= ABOUT ================= -->
+
+<section class="about" id="about">
+
+    <div class="about-image">
+
+        <img
+            src="{{ url_for('static', filename='images/barber.jpg') }}"
+            alt="Professional barber at DESTINY'S CUT"
+        >
+
+    </div>
+
+
+    <div class="about-content">
+
+        <p class="gold-text">
+            ABOUT DESTINY'S CUT
+        </p>
+
+        <h2>
+            MORE THAN A
+            <span>HAIRCUT.</span>
+        </h2>
+
+        <p>
+            At DESTINY'S CUT, we believe your haircut is part
+            of your identity. That's why every client receives
+            attention to detail from start to finish.
+        </p>
+
+        <p>
+            Whether you want a clean classic cut, a sharp fade
+            or complete grooming, our goal is simple:
+            <strong>make you leave looking your best.</strong>
+        </p>
+
+        <a href="#booking" class="gold-button">
+            RESERVE YOUR CHAIR
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- ================= GALLERY ================= -->
+
+<section class="section gallery-section" id="gallery">
+
+    <div class="section-heading">
+
+        <p class="gold-text">OUR WORK</p>
+
+        <h2 class="section-title">
+            THE <span>GALLERY</span>
+        </h2>
+
+        <p>
+            A glimpse of the DESTINY'S CUT experience.
+        </p>
+
+    </div>
+
+
+    <div class="gallery-grid">
+
+        <div class="gallery-item large">
+            <img
+                src="{{ url_for('static', filename='images/haircut1.jpg') }}"
+                alt="DESTINY'S CUT haircut"
+            >
+        </div>
+
+        <div class="gallery-item">
+            <img
+                src="{{ url_for('static', filename='images/haircut2.jpg') }}"
+                alt="Fresh fade"
+            >
+        </div>
+
+        <div class="gallery-item">
+            <img
+                src="{{ url_for('static', filename='images/haircut3.jpg') }}"
+                alt="Beard grooming"
+            >
+        </div>
+
+        <div class="gallery-item">
+            <img
+                src="{{ url_for('static', filename='images/haircut4.jpg') }}"
+                alt="Modern haircut"
+            >
+        </div>
+
+        <div class="gallery-item">
+            <img
+                src="{{ url_for('static', filename='images/barber.jpg') }}"
+                alt="Professional barber"
+            >
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= BOOKING ================= -->
+
+<section class="booking-section" id="booking">
+
+    <div class="section-heading">
+
+        <p class="gold-text">RESERVE YOUR CHAIR</p>
+
+        <h2 class="section-title">
+            BOOK YOUR <span>APPOINTMENT</span>
+        </h2>
+
+        <p>
+            Choose your service, preferred date and time.
+        </p>
+
+    </div>
+
+
+    <form id="bookingForm">
+
+        <div class="input-group">
+
+            <label for="name">Full Name</label>
+
+            <input
+                type="text"
+                id="name"
+                placeholder="Enter your full name"
+                required
+            >
+
+        </div>
+
+
+        <div class="input-group">
+
+            <label for="phone">Phone Number</label>
+
+            <input
+                type="tel"
+                id="phone"
+                placeholder="Enter your phone number"
+                required
+            >
+
+        </div>
+
+
+        <div class="input-group">
+
+            <label for="service">
+                Select Service
+            </label>
+
+            <select id="service" required>
+
+                <option value="">
+                    Select a service
+                </option>
+
+                <option value="Classic Haircut">
+                    Classic Haircut — ₦3,000
+                </option>
+
+                <option value="Signature Fade">
+                    Signature Fade — ₦4,000
+                </option>
+
+                <option value="Haircut + Beard">
+                    Haircut + Beard — ₦5,000
+                </option>
+
+                <option value="Modern Styling">
+                    Modern Styling — ₦4,000
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <div class="input-group">
+
+            <label for="date">
+                Preferred Date
+            </label>
+
+            <input
+                type="date"
+                id="date"
+                required
+            >
+
+        </div>
+
+
+        <div class="input-group">
+
+            <label for="time">
+                Preferred Time
+            </label>
+
+            <select id="time" required>
+
+                <option value="">
+                    Select time
+                </option>
+
+                <option value="9:00 AM">9:00 AM</option>
+                <option value="10:00 AM">10:00 AM</option>
+                <option value="11:00 AM">11:00 AM</option>
+                <option value="12:00 PM">12:00 PM</option>
+                <option value="1:00 PM">1:00 PM</option>
+                <option value="2:00 PM">2:00 PM</option>
+                <option value="3:00 PM">3:00 PM</option>
+                <option value="4:00 PM">4:00 PM</option>
+                <option value="5:00 PM">5:00 PM</option>
+                <option value="6:00 PM">6:00 PM</option>
+
+            </select>
+
+        </div>
+
+
+        <div class="input-group">
+
+            <label for="request">
+                Special Request
+            </label>
+
+            <textarea
+                id="request"
+                placeholder="Any special request? (Optional)"
+            ></textarea>
+
+        </div>
+
+
+        <button
+            type="submit"
+            class="booking-button"
+        >
+            CONFIRM APPOINTMENT
+        </button>
+
+        <p class="booking-note">
+            Your appointment request will be submitted
+            to DESTINY'S CUT.
+        </p>
+
+    </form>
+
+</section>
+
+
+<!-- ================= CONTACT ================= -->
+
+<section class="contact" id="contact">
+
+    <div class="contact-content">
+
+        <p class="gold-text">VISIT US</p>
+
+        <h2>
+            COME GET YOUR
+            <span>FRESH CUT.</span>
+        </h2>
+
+        <p>
+            Visit DESTINY'S CUT in Itori, Ogun State.
+        </p>
+
+
+        <div class="contact-info">
+
+            <div class="contact-item">
+
+                <strong>LOCATION</strong>
+
+                <p>
+                    Oremeji Street,<br>
+                    Itori, Ewekoro LGA,<br>
+                    Ogun State, Nigeria
+                </p>
+
+            </div>
+
+
+            <div class="contact-item">
+
+                <strong>OPENING HOURS</strong>
+
+                <p>
+                    Monday – Saturday
+                </p>
+
+                <p>
+                    9:00 AM – 7:00 PM
+                </p>
+
+            </div>
+
+
+            <div class="contact-item">
+
+                <strong>CONTACT</strong>
+
+                <p>
+                    Call or WhatsApp us
+                    for appointments.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <div class="logo">
+
+        <div class="logo-box">
+            DC
+        </div>
+
+        <div>
+
+            <h1>DESTINY'S CUT</h1>
+
+            <span>
+                PREMIUM BARBING SALON
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <p>
+        © 2026 DESTINY'S CUT.
+        All Rights Reserved.
+    </p>
+
+</footer>
+
+
+<script
+    src="{{ url_for('static', filename='js/script.js') }}">
+</script>
+
+</body>
+</html>

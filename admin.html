@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>DESTINY'S CUT | Admin</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: #080808;
+            color: white;
+
+            font-family: Arial, sans-serif;
+
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1250px;
+            margin: auto;
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 20px;
+
+            padding: 25px;
+
+            margin-bottom: 25px;
+
+            background: #101010;
+            border: 1px solid #302719;
+        }
+
+        header h1 {
+            color: #d6ad5c;
+
+            font-size: 25px;
+
+            letter-spacing: 3px;
+        }
+
+        header p {
+            color: #777;
+
+            margin-top: 7px;
+        }
+
+        .logout {
+            padding: 12px 18px;
+
+            color: #d6ad5c;
+
+            border: 1px solid #d6ad5c;
+
+            text-decoration: none;
+
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .stats {
+            display: grid;
+
+            grid-template-columns: repeat(4, 1fr);
+
+            gap: 15px;
+
+            margin-bottom: 25px;
+        }
+
+        .stat {
+            padding: 25px;
+
+            background: #101010;
+
+            border: 1px solid #292929;
+        }
+
+        .stat small {
+            display: block;
+
+            margin-bottom: 10px;
+
+            color: #777;
+
+            font-size: 11px;
+            letter-spacing: 1px;
+        }
+
+        .stat strong {
+            color: #d6ad5c;
+
+            font-size: 30px;
+        }
+
+        .bookings {
+            overflow-x: auto;
+
+            background: #101010;
+
+            border: 1px solid #292929;
+        }
+
+        .booking-title {
+            padding: 22px;
+
+            border-bottom: 1px solid #292929;
+        }
+
+        table {
+            width: 100%;
+
+            border-collapse: collapse;
+
+            min-width: 1100px;
+        }
+
+        th,
+        td {
+            padding: 15px;
+
+            text-align: left;
+
+            border-bottom: 1px solid #252525;
+        }
+
+        th {
+            background: #0c0c0c;
+
+            color: #d6ad5c;
+
+            font-size: 11px;
+            letter-spacing: 1px;
+        }
+
+        td {
+            color: #ccc;
+
+            font-size: 13px;
+        }
+
+        .status {
+            display: inline-block;
+
+            padding: 6px 9px;
+
+            font-size: 10px;
+
+            font-weight: bold;
+        }
+
+        .pending {
+            background: #665019;
+            color: #ffe49b;
+        }
+
+        .confirmed {
+            background: #164c2b;
+            color: #8effb5;
+        }
+
+        .cancelled {
+            background: #571b1b;
+            color: #ff9292;
+        }
+
+        .actions {
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 6px;
+        }
+
+        .action {
+            padding: 7px 9px;
+
+            border: none;
+
+            text-decoration: none;
+
+            font-size: 10px;
+
+            cursor: pointer;
+        }
+
+        .confirm {
+            background: #194d2d;
+            color: #9bffbd;
+        }
+
+        .pending-btn {
+            background: #5c4818;
+            color: #ffe49b;
+        }
+
+        .cancel {
+            background: #541b1b;
+            color: #ff9999;
+        }
+
+        .delete {
+            background: #8b2525;
+            color: white;
+        }
+
+        .call {
+            background: #163b58;
+            color: #9ed8ff;
+        }
+
+        .whatsapp {
+            background: #145c37;
+            color: #9dffc5;
+        }
+
+        .empty {
+            padding: 60px;
+
+            text-align: center;
+
+            color: #777;
+        }
+
+        @media (max-width: 700px) {
+
+            body {
+                padding: 10px;
+            }
+
+            header {
+                align-items: flex-start;
+
+                flex-direction: column;
+            }
+
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <header>
+
+        <div>
+
+            <h1>DESTINY'S CUT</h1>
+
+            <p>
+                Premium Barbing Salon — Admin Dashboard
+            </p>
+
+        </div>
+
+        <a
+            href="/admin/logout"
+            class="logout"
+        >
+            LOGOUT
+        </a>
+
+    </header>
+
+
+    <section class="stats">
+
+        <div class="stat">
+            <small>TOTAL</small>
+            <strong>{{ total }}</strong>
+        </div>
+
+        <div class="stat">
+            <small>PENDING</small>
+            <strong>{{ pending }}</strong>
+        </div>
+
+        <div class="stat">
+            <small>CONFIRMED</small>
+            <strong>{{ confirmed }}</strong>
+        </div>
+
+        <div class="stat">
+            <small>CANCELLED</small>
+            <strong>{{ cancelled }}</strong>
+        </div>
+
+    </section>
+
+
+    <section class="bookings">
+
+        <div class="booking-title">
+            <h2>Appointment Requests</h2>
+        </div>
+
+
+        {% if bookings %}
+
+        <table>
+
+            <thead>
+
+                <tr>
+                    <th>CLIENT</th>
+                    <th>PHONE</th>
+                    <th>SERVICE</th>
+                    <th>DATE</th>
+                    <th>TIME</th>
+                    <th>STATUS</th>
+                    <th>ACTIONS</th>
+                </tr>
+
+            </thead>
+
+
+            <tbody>
+
+                {% for booking in bookings %}
+
+                <tr>
+
+                    <td>
+                        {{ booking.name }}
+                    </td>
+
+                    <td>
+                        {{ booking.phone }}
+                    </td>
+
+                    <td>
+                        {{ booking.service }}
+                    </td>
+
+                    <td>
+                        {{ booking.date }}
+                    </td>
+
+                    <td>
+                        {{ booking.time }}
+                    </td>
+
+                    <td>
+
+                        <span
+                            class="status
+                            {% if booking.status == 'Confirmed' %}
+                                confirmed
+                            {% elif booking.status == 'Cancelled' %}
+                                cancelled
+                            {% else %}
+                                pending
+                            {% endif %}"
+                        >
+                            {{ booking.status }}
+                        </span>
+
+                    </td>
+
+                    <td>
+
+                        <div class="actions">
+
+                            <button
+                                class="action confirm"
+                                onclick="updateStatus('{{ booking.id }}', 'Confirmed')"
+                            >
+                                CONFIRM
+                            </button>
+
+                            <button
+                                class="action pending-btn"
+                                onclick="updateStatus('{{ booking.id }}', 'Pending')"
+                            >
+                                PENDING
+                            </button>
+
+                            <button
+                                class="action cancel"
+                                onclick="updateStatus('{{ booking.id }}', 'Cancelled')"
+                            >
+                                CANCEL
+                            </button>
+
+                            <a
+                                class="action call"
+                                href="tel:{{ booking.phone }}"
+                            >
+                                CALL
+                            </a>
+
+                            <a
+                                class="action whatsapp"
+                                href="https://wa.me/{{ booking.phone|replace('+', '')|replace(' ', '')|replace('-', '') }}"
+                                target="_blank"
+                            >
+                                WHATSAPP
+                            </a>
+
+                            <button
+                                class="action delete"
+                                onclick="deleteBooking('{{ booking.id }}')"
+                            >
+                                DELETE
+                            </button>
+
+                        </div>
+
+                    </td>
+
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+        {% else %}
+
+        <div class="empty">
+            No appointments yet.
+        </div>
+
+        {% endif %}
+
+    </section>
+
+</div>
+
+
+<script>
+
+async function updateStatus(id, status) {
+
+    try {
+
+        const response = await fetch(
+            `/admin/booking/${id}/status`,
+            {
+                method: "POST",
+
+                headers: {
+                    "Content-Type": "application/json"
+                },
+
+                body: JSON.stringify({
+                    status: status
+                })
+            }
+        );
+
+        const result = await response.json();
+
+        if (result.success) {
+            location.reload();
+        } else {
+            alert(result.message || "Unable to update booking.");
+        }
+
+    } catch (error) {
+
+        alert("Could not connect to the server.");
+
+    }
+}
+
+
+async function deleteBooking(id) {
+
+    const confirmed = confirm(
+        "Are you sure you want to permanently delete this booking?"
+    );
+
+    if (!confirmed) {
+        return;
+    }
+
+    try {
+
+        const response = await fetch(
+            `/admin/booking/${id}/delete`,
+            {
+                method: "POST"
+            }
+        );
+
+        const result = await response.json();
+
+        if (result.success) {
+            location.reload();
+        } else {
+            alert(result.message || "Unable to delete booking.");
+        }
+
+    } catch (error) {
+
+        alert("Could not connect to the server.");
+
+    }
+}
+
+</script>
+
+</body>
+</html>

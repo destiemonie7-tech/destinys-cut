@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>DESTINY'S CUT | Admin Login</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            min-height: 100vh;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 20px;
+
+            background: #080808;
+            color: white;
+
+            font-family: Arial, sans-serif;
+        }
+
+        .login-box {
+            width: 100%;
+            max-width: 420px;
+
+            padding: 40px;
+
+            background: #101010;
+            border: 1px solid #302719;
+        }
+
+        .logo {
+            width: 60px;
+            height: 60px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            margin-bottom: 25px;
+
+            border: 1px solid #d6ad5c;
+
+            color: #d6ad5c;
+
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        h1 {
+            font-size: 25px;
+            letter-spacing: 2px;
+        }
+
+        .subtitle {
+            margin-top: 8px;
+            margin-bottom: 30px;
+
+            color: #777;
+        }
+
+        label {
+            display: block;
+
+            margin-bottom: 8px;
+
+            color: #bbb;
+            font-size: 13px;
+        }
+
+        input {
+            width: 100%;
+
+            padding: 16px;
+
+            background: #080808;
+            color: white;
+
+            border: 1px solid #292929;
+            outline: none;
+
+            margin-bottom: 18px;
+        }
+
+        input:focus {
+            border-color: #d6ad5c;
+        }
+
+        button {
+            width: 100%;
+
+            padding: 16px;
+
+            border: none;
+
+            background: #d6ad5c;
+            color: #080808;
+
+            font-weight: bold;
+            letter-spacing: 1px;
+
+            cursor: pointer;
+        }
+
+        .error {
+            margin-bottom: 18px;
+
+            color: #ff6b6b;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="login-box">
+
+        <div class="logo">
+            DC
+        </div>
+
+        <h1>ADMIN LOGIN</h1>
+
+        <p class="subtitle">
+            DESTINY'S CUT Booking Dashboard
+        </p>
+
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+
+        <form method="POST">
+
+            <label for="password">
+                Admin Password
+            </label>
+
+            <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Enter admin password"
+                required
+            >
+
+            <button type="submit">
+                LOGIN
+            </button>
+
+        </form>
+
+    </div>
+
+</body>
+</html>
